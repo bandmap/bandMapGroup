@@ -1,0 +1,1147 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+body {
+  font-family: "inter", "Noto Sans TC", "Dela Gothic One", sans-serif;
+  line-height: 1.2;
+}
+
+/* 重置標題字重 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+/* 重置清單符號 */
+ul, ol {
+  list-style: none;
+}
+
+/* 重置圖片 */
+img {
+  display: block;
+  width: 100%;
+}
+
+/* 重置連結 */
+a {
+  display: block; /* 將a預設的inline改為block，才能設定間距及寬高 */
+  color: #666;
+  text-decoration: none;
+}
+
+.newsTicker .bandmap-wrapper, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .cta-btn svg, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #chatboard-page .buttons .button button svg, .topbar, .topbar .left-part, .topbar .right-part, .banner-section, .card .bottom-line .btns .collect-btn, #bandmap-main .search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#bandmap-page, #banddiscover-page, #currentevent-page, #chatboard-page, #personalcal-page {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#footer .footer-main, .card .bottom-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card figure img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 單行省略 */
+.card .content .event {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 跑馬燈動畫-X軸 */
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes scroll2 {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+/* 跑馬燈動畫-Y軸 */
+@keyframes scroll-y {
+  0% {
+    transform: translateY(-130%);
+  }
+  100% {
+    transform: translateY(60%);
+  }
+}
+/* 音符動畫 */
+@keyframes rotate {
+  0% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+@keyframes rotate2 {
+  0% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+/* 笑臉動畫 */
+@keyframes smile-face-up {
+  0% {
+    transform: translateY(10%);
+  }
+  25% {
+    transform: translateY(-10%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  75% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(10%);
+  }
+}
+@keyframes smile-face-up2 {
+  0% {
+    transform: translateY(10%);
+  }
+  25% {
+    transform: translateY(-10%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  75% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(10%);
+  }
+}
+/* 耳朵動畫 */
+@keyframes zoom {
+  0% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+/* 轉圈動畫 */
+@keyframes bong_roll {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* cube12音符動畫 */
+@keyframes note-roll-odd {
+  0% {
+    transform: translateX(5%);
+  }
+  25% {
+    transform: translateX(-5%);
+  }
+  50% {
+    transform: translateX(5%);
+  }
+  75% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(5%);
+  }
+}
+@keyframes note-roll-even {
+  0% {
+    transform: translateX(-5%);
+  }
+  25% {
+    transform: translateX(5%);
+  }
+  50% {
+    transform: translateX(-5%);
+  }
+  75% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(-5%);
+  }
+}
+/* 跑馬燈區 */
+.newsTicker {
+  height: 55px;
+  background-color: black;
+  display: flex;
+  overflow: hidden;
+}
+.newsTicker .bandmap-wrapper {
+  animation: scroll 40s linear infinite;
+}
+.newsTicker .bandmap-wrapper:nth-child(2) {
+  animation: scroll2 40s linear infinite;
+  animation-delay: -20s;
+}
+.newsTicker span {
+  color: white;
+  font-family: "Dela Gothic One";
+  font-size: 32px;
+  padding: 0 12px;
+}
+
+/* 首頁cube區 */
+#cubes {
+  width: 100%;
+  height: calc(100vh - 110px);
+  display: flex;
+}
+#cubes .cube-btn {
+  cursor: pointer;
+}
+#cubes .cube-left {
+  width: 65%;
+}
+#cubes .cube-left .row-left-up {
+  height: 35%;
+}
+#cubes .cube-left .row-left-up:hover .cube1 {
+  background-color: #FFAF00;
+  padding: 20px 40px 20px 0;
+}
+#cubes .cube-left .row-left-up:hover .cube2 {
+  background-color: #FE8DBA;
+  padding: 20px 0 20px 40px;
+}
+#cubes .cube-left .row-left-up .cube1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 30%;
+  background-color: #FF4438;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.4s;
+}
+#cubes .cube-left .row-left-up .cube1 .texture {
+  position: absolute;
+  opacity: 0.3;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+#cubes .cube-left .row-left-up .cube1 img {
+  width: 90%;
+}
+#cubes .cube-left .row-left-up .cube2 {
+  width: 100%;
+  height: 70%;
+  background-color: #0099FF;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s;
+}
+#cubes .cube-left .row-left-up .cube2 .texture {
+  position: absolute;
+  opacity: 0.3;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+#cubes .cube-left .row-left-up .cube2 img {
+  width: 90%;
+}
+#cubes .cube-left .row-left-down {
+  display: flex;
+  width: 100%;
+  height: 65%;
+}
+#cubes .cube-left .row-left-down .cube3 {
+  width: 20%;
+  flex: 0 0 20%;
+  background-color: #FFAF00;
+  flex-direction: column;
+  overflow: hidden;
+}
+#cubes .cube-left .row-left-down .cube3 .arrow-roll {
+  flex-direction: column;
+  animation: scroll-y 8s ease-in-out infinite;
+}
+#cubes .cube-left .row-left-down .cube3 .arrow-roll:nth-child(2) {
+  animation: scroll-y 8s ease-in-out infinite;
+  animation-delay: -8s;
+}
+#cubes .cube-left .row-left-down .cube3 .arrow-roll .ani-arrow {
+  fill: #FFF8E4;
+}
+#cubes .cube-left .row-left-down .cube3 .arrow-roll .arrow1 {
+  fill: #FF4438;
+  width: 145px;
+}
+#cubes .cube-left .row-left-down .row-right {
+  width: 80%;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 {
+  display: flex;
+  width: 100%;
+  height: 40%;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 .cube4 {
+  width: 25%;
+  height: 100%;
+  background-color: #FF4438;
+  overflow: hidden;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 .cube4 .note-roll {
+  display: flex;
+  animation: scroll 12s linear infinite;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 .cube4 .note-roll:nth-child(2) {
+  animation: scroll2 12s linear infinite;
+  animation-delay: -6s;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 .cube4 .note-roll .ani-note {
+  display: flex;
+  width: 130px;
+  fill: #FFF8E4;
+  animation: rotate 2s linear infinite;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 .cube5 {
+  width: 75%;
+  height: 100%;
+  padding: 10px;
+  background-color: #FFF8E4;
+  flex-direction: column;
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 .cube5 .texture {
+  position: absolute;
+  opacity: 0.3;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 4;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 .cube5:hover {
+  background-color: #FE8DBA;
+  padding: 10px 0 10px 20px;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 .cube5:hover .band-introducement {
+  color: #FFF8E4;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 .cube5:hover figure .arrow {
+  stroke: #FFF8E4;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 .cube5 .band-introducement {
+  font-family: "Dela Gothic One";
+  font-size: 60px;
+  letter-spacing: 0.3rem;
+  color: #FE8DBA;
+}
+#cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure .arrow {
+  width: 90%;
+  stroke: #FE8DBA;
+  stroke-width: 10px;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 {
+  display: flex;
+  width: 100%;
+  height: 60%;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left {
+  width: 70%;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 40%;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube6 {
+  width: 33.3333333333%;
+  background-color: #FE8DBA;
+  display: flex;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube6 img {
+  color: #FFF8E4;
+  object-fit: cover;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7 {
+  width: 33.3333333333%;
+  background-color: #0099FF;
+  overflow: hidden;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7 .smile-face-roll {
+  display: flex;
+  animation: scroll 30s linear infinite;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7 .smile-face-roll:nth-child(2) {
+  animation: scroll2 30s linear infinite;
+  animation-delay: -15s;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7 .smile-face-roll .smile-face {
+  display: flex;
+  width: 150px;
+  margin: 0 10px;
+  animation: smile-face-up 5s linear infinite;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7 .smile-face-roll .smile-face:nth-child(2) {
+  animation: smile-face-up2 5s linear infinite;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube8 {
+  width: 33.3333333333%;
+  background-color: #FF4438;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 {
+  width: 100%;
+  height: 60%;
+  padding: 10px;
+  background-color: #FFF8E4;
+  flex-direction: column;
+  transition: 0.4s;
+  overflow: hidden;
+  position: relative;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 .texture {
+  position: absolute;
+  opacity: 0.3;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 4;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9:hover {
+  background-color: #FE8DBA;
+  padding: 10px 0 10px 20px;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9:hover .band-discussion {
+  color: #FFF8E4;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9:hover figure .arrow {
+  stroke: #FFF8E4;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 .band-discussion {
+  font-family: "Dela Gothic One";
+  font-size: 60px;
+  letter-spacing: 0.3rem;
+  color: #FE8DBA;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure .arrow {
+  width: 90%;
+  stroke: #FE8DBA;
+  stroke-width: 10px;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .cube10 {
+  width: 30%;
+  height: 100%;
+  background-color: #0099FF;
+}
+#cubes .cube-left .row-left-down .row-right .row-2 .cube10 .ani-bong {
+  width: 90%;
+  fill: white;
+  animation: bong_roll 20s linear infinite;
+}
+#cubes .cube-right {
+  width: 35%;
+}
+#cubes .cube-right .cube-right-up {
+  display: flex;
+  height: 60%;
+}
+#cubes .cube-right .cube-right-up .cube11 {
+  width: 50%;
+  background-color: #FFAF00;
+}
+#cubes .cube-right .cube-right-up .cube11 .ear {
+  width: 80%;
+  animation: zoom 2s ease-in-out infinite;
+}
+#cubes .cube-right .cube-right-up .cube12 {
+  width: 50%;
+  background-color: #0099FF;
+  flex-direction: column;
+  overflow: hidden;
+}
+#cubes .cube-right .cube-right-up .cube12 .odd-roll {
+  animation: note-roll-odd 8s ease-in-out infinite;
+}
+#cubes .cube-right .cube-right-up .cube12 .even-roll {
+  animation: note-roll-even 8s ease-in-out infinite;
+}
+#cubes .cube-right .cube-right-up .cube12 .note-roll-cube12 {
+  margin: 5px 0;
+}
+#cubes .cube-right .cube-right-up .cube12 .note-roll-cube12 .ani-note {
+  display: flex;
+  width: 100px;
+  fill: #FFF8E4;
+}
+#cubes .cube-right .cube-right-up .cube12 .note-roll-cube12 .odd {
+  fill: #FE8DBA;
+}
+#cubes .cube-right .cube13 {
+  width: 100%;
+  height: 40%;
+  background-color: #FF4438;
+  overflow: hidden;
+  position: relative;
+}
+#cubes .cube-right .cube13 .texture {
+  position: absolute;
+  opacity: 0.3;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 4;
+}
+
+/* 導覽列區 */
+#nav-bar {
+  height: 55px;
+  padding: 0 40px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+  position: sticky;
+  margin-top: 0;
+  top: 0;
+}
+#nav-bar img {
+  width: 220px;
+  padding: 12px 12px 12px 0;
+}
+#nav-bar .menu {
+  display: flex;
+  align-items: center;
+}
+#nav-bar .menu a {
+  color: white;
+  padding: 16px 8px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  transition: 0.35s;
+}
+#nav-bar .menu a:hover {
+  background-color: #FFF8E4;
+  color: black;
+}
+
+/* Footer區 */
+#footer {
+  flex-direction: column;
+  position: relative;
+}
+#footer .footer-up {
+  width: 100%;
+  margin-bottom: -20px;
+}
+#footer .footer-main {
+  background-color: black;
+  padding: 40px 125px;
+  width: 100%;
+  z-index: 888;
+}
+#footer .footer-main .logo {
+  width: 210px;
+}
+#footer .footer-main .menu a {
+  font-size: 16px;
+  color: white;
+  padding-left: 24px;
+}
+
+/* 首頁區塊共用區 */
+.intro-section {
+  width: 500px;
+  padding: 24px;
+  letter-spacing: 0.2rem;
+}
+.intro-section .title {
+  margin-bottom: 40px;
+}
+.intro-section .title h2 {
+  font-family: "Dela Gothic One";
+  font-size: 60px;
+  margin-bottom: 16px;
+}
+.intro-section .title h3 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.intro-section p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+.intro-section .cta {
+  display: flex;
+  align-items: center;
+}
+.intro-section .cta span {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+/* 每個頁面的按鈕 */
+.cta-btn {
+  width: 48px;
+  height: 48px;
+  background-color: black;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+}
+.box-roll {
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+.box-roll .box-intro .box-pic {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin: 24px 0;
+  cursor: pointer;
+}
+.box-roll .box-intro .box-pic:hover .hover-text {
+  bottom: 0;
+}
+.box-roll .box-intro .box-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.box-roll .box-intro .box-pic .hover-text {
+  position: absolute;
+  bottom: -88px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 100%;
+  height: 88px;
+  padding: 12px 24px;
+  letter-spacing: 0.1rem;
+  transition: 0.4s;
+}
+
+/* 首頁隨BAND地圖區 */
+#bandmap-page {
+  height: 100vh;
+  padding: 0 50px;
+  background-image: url(../images/bg-bandmap.svg);
+  background-size: cover;
+  background-position: center;
+  position: sticky;
+  margin-top: 0;
+  top: 0;
+}
+#bandmap-page figure {
+  width: 90%;
+}
+
+/* 首頁BAND利商店區 */
+#banddiscover-page {
+  height: 100vh;
+  background-color: #0099FF;
+  position: relative;
+  padding: 0 50px;
+  position: sticky;
+  margin-top: 0;
+  top: 0;
+}
+#banddiscover-page .hover-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+}
+#banddiscover-page .hover-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#banddiscover-page::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: url(../images/texture.png);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  opacity: 0.2;
+}
+#banddiscover-page .intro-section {
+  color: white;
+  z-index: 1;
+}
+#banddiscover-page .intro-section h3 {
+  font-weight: 600;
+}
+#banddiscover-page .intro-section .cta button {
+  background-color: white;
+}
+#banddiscover-page .hover-text h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+#banddiscover-page .hover-text p {
+  font-size: 12px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 首頁BAND地開花區 */
+#currentevent-page {
+  height: 100vh;
+  background-color: #FE8DBA;
+  position: relative;
+  padding: 0 50px;
+  position: sticky;
+  margin-top: 0;
+  top: 0;
+}
+#currentevent-page .hover-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+}
+#currentevent-page .hover-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#currentevent-page::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: url(../images/texture.png);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  opacity: 0.2;
+}
+#currentevent-page .intro-section {
+  color: white;
+  z-index: 888;
+}
+#currentevent-page .intro-section h3 {
+  font-weight: 600;
+}
+#currentevent-page .intro-section .cta button {
+  background-color: white;
+}
+#currentevent-page .hover-text {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#currentevent-page .hover-text .text-left h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+#currentevent-page .hover-text .text-left .place figure {
+  width: 20x;
+  height: 20px;
+}
+#currentevent-page .hover-text .text-left .place p {
+  font-family: "inter";
+  font-size: 12px;
+  line-height: 1.5;
+}
+#currentevent-page .hover-text .event-time {
+  font-family: "inter";
+  font-size: 12px;
+}
+
+/* 首頁BAND利貼區 */
+#chatboard-page {
+  height: 100vh;
+  background-image: url(../images/樂迷留言板photo.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 0 50px;
+  position: sticky;
+  margin-top: 0;
+  top: 0;
+}
+#chatboard-page .intro-section {
+  color: white;
+  z-index: 1;
+}
+#chatboard-page .intro-section h3 {
+  font-weight: 600;
+}
+#chatboard-page .buttons .button {
+  padding: 24px;
+  background-color: white;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+#chatboard-page .buttons .button p {
+  font-size: 30px;
+  font-weight: 700;
+  color: black;
+  letter-spacing: 0.1rem;
+  margin-right: 24px;
+}
+#chatboard-page .buttons .button button {
+  width: 48px;
+  height: 48px;
+  background-color: black;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+}
+/* 首頁隨BAND排區 */
+#personalcal-page {
+  height: 100vh;
+  position: relative;
+  padding: 0 50px;
+  background-color: white;
+  position: sticky;
+  margin-top: 0;
+  top: 0;
+}
+#personalcal-page .calendar-illu {
+  width: 50%;
+  height: 100%;
+  background-color: #FF4438;
+}
+
+/* 各分頁面共用區 */
+/* 主要內容區main */
+main {
+  margin-bottom: 40px;
+}
+
+/* 各分頁topbar */
+.topbar {
+  height: 50vh;
+}
+.topbar .left-part {
+  flex: 1;
+  letter-spacing: 0.1rem;
+  color: white;
+}
+.topbar .left-part .title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.topbar .left-part .title h2 {
+  font-family: "Dela Gothic One";
+  font-size: 60px;
+  margin-bottom: 24px;
+  padding: 32px 24px;
+}
+.topbar .left-part .title p {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 16px 24px;
+}
+.topbar .right-part {
+  flex: 1.2;
+  height: 50vh;
+}
+
+/* banner輪播區 */
+.banner-section {
+  width: 100%;
+  overflow: hidden;
+}
+.banner-section .banner-card {
+  width: 800px;
+  height: 400px;
+  flex-shrink: 0;
+  margin: 0 24px;
+  cursor: pointer;
+}
+.banner-section .banner-card img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* 背景區漸層 */
+.linear-bg {
+  z-index: -1;
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, #FFAF00, white, #FE8DBA);
+  z-index: -2;
+}
+.linear-bg img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+/* card卡片樣式 */
+.card {
+  width: 425px;
+  margin: 0 30px 40px 30px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.card:hover {
+  box-shadow: 10px 15px #0099FF;
+  transform: translate(-10px, -10px);
+}
+.card figure {
+  width: 100%;
+  height: 247px;
+}
+.card .content {
+  width: 100%;
+  height: 153px;
+  font-family: "inter";
+  background-color: black;
+  color: white;
+  padding: 16px;
+}
+.card .content .date {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.card .content .event {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.card .content .location {
+  display: flex;
+  margin-bottom: 8px;
+}
+.card .content .location figure {
+  width: 20px;
+  height: 20px;
+}
+.card .content .location p {
+  font-family: "inter";
+  font-size: 16px;
+}
+.card .bottom-line .name-tags {
+  font-size: 10px;
+  display: flex;
+}
+.card .bottom-line .name-tags .nametag {
+  border: solid 1px white;
+  padding: 4px 8px;
+  border-radius: 100px;
+  margin-right: 8px;
+}
+.card .bottom-line .btns {
+  display: flex;
+}
+.card .bottom-line .btns .like {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+.card .bottom-line .btns .collect-btn {
+  border: solid 1px white;
+  padding: 2px 8px 2px 4px;
+}
+.card .bottom-line .btns .collect-btn figure {
+  width: 20px;
+  height: 20px;
+}
+.card .bottom-line .btns .collect-btn p {
+  font-size: 12px;
+}
+
+/* 右邊卡片 */
+.right-place {
+  margin: 40px 30px 0 30px;
+}
+
+/* 演出搜尋頁面 */
+#bandmap-main {
+  position: relative;
+  z-index: 0;
+  /* 搜尋選單 */
+}
+#bandmap-main .left-part h2 {
+  background-color: #0099FF;
+}
+#bandmap-main .left-part p {
+  background-color: #0099FF;
+}
+#bandmap-main .right-part {
+  background-color: #FF4438;
+}
+#bandmap-main .banner-section {
+  position: relative;
+  margin-bottom: 120px;
+}
+#bandmap-main .banner-section .cta-btn {
+  position: absolute;
+  transform: scale(1.25);
+}
+#bandmap-main .banner-section .left {
+  transform: scale(-1.25);
+  left: 50px;
+}
+#bandmap-main .banner-section .right {
+  right: 50px;
+}
+#bandmap-main .search-section {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 100px;
+}
+#bandmap-main .search-section div {
+  flex: 1;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+#bandmap-main .search-section div label {
+  margin-bottom: 8px;
+}
+#bandmap-main .search-section div input,
+#bandmap-main .search-section div select {
+  background-color: transparent;
+  border: solid 3px white;
+  height: 40px;
+  padding-left: 0 8px;
+  color: white;
+}
+#bandmap-main .search-section .where {
+  background-color: #0099FF;
+}
+#bandmap-main .newsTicker {
+  height: 80px;
+  transform: rotate(-3deg);
+  margin-bottom: 60px;
+}
+#bandmap-main .newsTicker span {
+  font-size: 40px;
+}
+#bandmap-main .cards {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* 各活動頁排版 */
+.event-banner {
+  height: 700px;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+.event-banner .cover {
+  position: absolute;
+  width: 100%;
+}
+.event-banner .eventpic {
+  position: absolute;
+  height: 100%;
+  z-index: -1;
+}
+.event-banner .eventpic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.event-banner h1 {
+  position: absolute;
+}/*# sourceMappingURL=style.css.map */

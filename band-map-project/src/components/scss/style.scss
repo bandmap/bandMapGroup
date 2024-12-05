@@ -1,0 +1,1179 @@
+@use 'reset';
+@use 'variables' as *;
+@use 'function' as *;
+@use 'keyframes';
+
+
+/* 跑馬燈區 */
+.newsTicker {
+    height: 55px;
+    background-color: $Neutral_color_black;
+    display: flex;
+    overflow: hidden;
+
+    .bandmap-wrapper {
+        @extend %box-center;
+        animation: scroll 40s linear infinite;
+
+        &:nth-child(2) {
+            animation: scroll2 40s linear infinite;
+            animation-delay: -20s;
+        }
+    }
+
+    span {
+        color: $Neutral_color_white;
+        font-family: $font_title_dela;
+        font-size: 32px;
+        padding: 0 12px;
+    }
+}
+
+/* 首頁cube區 */
+#cubes {
+    width: 100%;
+    height: calc(100vh - 110px);
+    display: flex;
+
+    .cube-btn {
+        cursor: pointer;
+    }
+
+    .cube-left {
+        width: 65%;
+
+        .row-left-up {
+            height: 35%;
+
+            &:hover {
+                .cube1 {
+                    background-color: $Primary_color_orange;
+                    padding: 20px 40px 20px 0;
+
+                }
+
+                .cube2 {
+                    background-color: $Primary_color_pink;
+                    padding: 20px 0 20px 40px;
+                }
+            }
+
+            .cube1 {
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                width: 100%;
+                height: 30%;
+                background-color: $Primary_color_red;
+                padding: 20px;
+                overflow: hidden;
+                position: relative;
+                transition: $speed-cubebuttomhover;
+
+                .texture {
+                    position: absolute;
+                    opacity: 0.3;
+                    width: 100%;
+                    left: 0;
+                    top: 0;
+                }
+
+                img {
+                    width: 90%;
+                }
+            }
+
+            .cube2 {
+                width: 100%;
+                height: 70%;
+                background-color: $Primary_color_blue;
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                transition: $speed-cubebuttomhover;
+
+                .texture {
+                    position: absolute;
+                    opacity: 0.3;
+                    width: 100%;
+                    left: 0;
+                    top: 0;
+                }
+
+                img {
+                    width: 90%;
+                }
+            }
+
+        }
+
+        .row-left-down {
+            display: flex;
+            width: 100%;
+            height: 65%;
+
+            .cube3 {
+                width: 20%;
+                flex: 0 0 20%;
+                background-color: $Primary_color_orange;
+                @extend %box-center;
+                flex-direction: column;
+                overflow: hidden;
+
+                .arrow-roll {
+                    @extend %box-center;
+                    flex-direction: column;
+                    animation: scroll-y 8s ease-in-out infinite;
+
+                    &:nth-child(2) {
+                        animation: scroll-y 8s ease-in-out infinite;
+                        animation-delay: -8s;
+                    }
+
+                    .ani-arrow {
+                        fill: $Primary_color_beige;
+                    }
+
+                    .arrow1 {
+                        fill: $Primary_color_red;
+                        width: 145px;
+                    }
+                }
+            }
+
+            .row-right {
+                width: 80%;
+
+                .row-1 {
+                    display: flex;
+                    width: 100%;
+                    height: 40%;
+
+                    .cube4 {
+                        width: 25%;
+                        height: 100%;
+                        background-color: $Primary_color_red;
+                        @extend %box-center;
+                        overflow: hidden;
+
+                        .note-roll {
+                            display: flex;
+                            animation: scroll 12s linear infinite;
+
+                            &:nth-child(2) {
+                                animation: scroll2 12s linear infinite;
+                                animation-delay: -6s;
+                            }
+
+
+                            .ani-note {
+                                display: flex;
+                                width: 130px;
+                                fill: $Primary_color_beige;
+                                animation: rotate 2s linear infinite;
+
+                            }
+                        }
+
+
+                    }
+
+                    .cube5 {
+                        width: 75%;
+                        height: 100%;
+                        padding: 10px;
+                        background-color: $Primary_color_beige;
+                        @extend %box-center;
+                        flex-direction: column;
+                        transition: $speed-cubebuttomhover;
+                        position: relative;
+                        overflow: hidden;
+
+                        .texture {
+                            position: absolute;
+                            opacity: 0.3;
+                            width: 100%;
+                            left: 0;
+                            top: 0;
+                            z-index: 4;
+                        }
+
+                        &:hover {
+                            background-color: $Primary_color_pink;
+                            padding: 10px 0 10px 20px;
+
+                            .band-introducement {
+                                color: $Primary_color_beige;
+                            }
+
+                            figure .arrow {
+                                stroke: $Primary_color_beige;
+                            }
+                        }
+
+                        .band-introducement {
+                            font-family: $font_title_dela;
+                            font-size: 60px;
+                            letter-spacing: 0.3rem;
+                            color: $Primary_color_pink;
+                        }
+
+                        figure {
+                            @extend %box-center;
+
+                            .arrow {
+                                width: 90%;
+                                stroke: $Primary_color_pink;
+                                stroke-width: 10px;
+                            }
+                        }
+                    }
+
+                }
+
+                .row-2 {
+                    display: flex;
+                    width: 100%;
+                    height: 60%;
+
+                    .row-right-left {
+                        width: 70%;
+
+                        .row-right-left-up {
+                            display: flex;
+                            justify-content: space-between;
+                            width: 100%;
+                            height: 40%;
+
+                            .cube6 {
+                                width: calc(100%/3);
+                                background-color: $Primary_color_pink;
+                                display: flex;
+
+                                img {
+                                    color: $Primary_color_beige;
+                                    object-fit: cover;
+                                }
+                            }
+
+                            .cube7 {
+                                width: calc(100%/3);
+                                background-color: $Primary_color_blue;
+                                @extend %box-center;
+                                overflow: hidden;
+
+                                .smile-face-roll {
+                                    display: flex;
+
+                                    animation: scroll 30s linear infinite;
+
+                                    &:nth-child(2) {
+                                        animation: scroll2 30s linear infinite;
+                                        animation-delay: -15s;
+                                    }
+
+                                    .smile-face {
+                                        display: flex;
+                                        width: 150px;
+                                        margin: 0 10px;
+
+                                        animation: smile-face-up 5s linear infinite;
+
+                                        &:nth-child(2) {
+                                            animation: smile-face-up2 5s linear infinite;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .cube8 {
+                                width: calc(100%/3);
+                                background-color: $Primary_color_red;
+                            }
+                        }
+
+                        .cube9 {
+                            width: 100%;
+                            height: 60%;
+                            padding: 10px;
+                            background-color: $Primary_color_beige;
+                            @extend %box-center;
+                            flex-direction: column;
+                            transition: $speed-cubebuttomhover;
+                            overflow: hidden;
+                            position: relative;
+
+                            .texture {
+                                position: absolute;
+                                opacity: 0.3;
+                                width: 100%;
+                                left: 0;
+                                top: 0;
+                                z-index: 4;
+                            }
+
+                            &:hover {
+                                background-color: $Primary_color_pink;
+                                padding: 10px 0 10px 20px;
+
+                                .band-discussion {
+                                    color: $Primary_color_beige;
+                                }
+
+                                figure .arrow {
+                                    stroke: $Primary_color_beige;
+                                }
+                            }
+
+                            .band-discussion {
+                                font-family: $font_title_dela;
+                                font-size: 60px;
+                                letter-spacing: 0.3rem;
+                                color: $Primary_color_pink;
+                            }
+
+                            figure {
+                                @extend %box-center;
+
+                                .arrow {
+                                    width: 90%;
+                                    stroke: $Primary_color_pink;
+                                    stroke-width: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    .cube10 {
+                        width: 30%;
+                        height: 100%;
+                        background-color: $Primary_color_blue;
+                        @extend %box-center;
+
+                        .ani-bong {
+                            width: 90%;
+                            fill: $Neutral_color_white;
+                            animation: bong_roll 20s linear infinite;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .cube-right {
+        width: 35%;
+
+        .cube-right-up {
+            display: flex;
+            height: 60%;
+
+            .cube11 {
+                width: 50%;
+                background-color: $Primary_color_orange;
+                @extend %box-center;
+
+                .ear {
+                    width: 80%;
+                    animation: zoom 2s ease-in-out infinite;
+                }
+            }
+
+            .cube12 {
+                width: 50%;
+                background-color: $Primary_color_blue;
+                @extend %box-center;
+                flex-direction: column;
+                overflow: hidden;
+
+                .odd-roll {
+                    animation: note-roll-odd 8s ease-in-out infinite;
+                }
+
+                .even-roll {
+                    animation: note-roll-even 8s ease-in-out infinite;
+                }
+
+                .note-roll-cube12 {
+                    @extend %box-center;
+                    margin: 5px 0;
+
+                    .ani-note {
+                        display: flex;
+                        width: 100px;
+                        fill: $Primary_color_beige;
+                    }
+
+                    .odd {
+                        fill: $Primary_color_pink;
+                    }
+                }
+            }
+        }
+
+        .cube13 {
+            width: 100%;
+            height: 40%;
+            background-color: $Primary_color_red;
+            @extend %box-center;
+            overflow: hidden;
+            position: relative;
+
+            .texture {
+                position: absolute;
+                opacity: 0.3;
+                width: 100%;
+                left: 0;
+                top: 0;
+                z-index: 4;
+            }
+        }
+    }
+}
+
+/* 導覽列區 */
+#nav-bar {
+    height: 55px;
+    padding: 0 40px;
+    background-color: $Neutral_color_black;
+    display: flex;
+    justify-content: space-between;
+    z-index: $z_index_l;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    img {
+        width: 220px;
+        padding: 12px 12px 12px 0;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+
+        a {
+            color: $Neutral_color_white;
+            padding: 16px 8px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.05rem;
+            transition: 0.35s;
+        }
+
+        a:hover {
+            background-color: $Primary_color_beige;
+            color: $Neutral_color_black;
+        }
+    }
+}
+
+/* Footer區 */
+#footer {
+    @extend %box-center;
+    flex-direction: column;
+    position: relative;
+
+    .footer-up {
+        width: 100%;
+        margin-bottom: -20px;
+    }
+
+    .footer-main {
+        background-color: $Neutral_color_black;
+        padding: 40px 125px;
+        width: 100%;
+        @extend %box-spacebetween;
+        z-index: $z_index-m;
+
+        .logo {
+            width: 210px;
+        }
+
+        .menu {
+            @extend %box-center;
+
+            a {
+                font-size: $fontsize_16;
+                color: $Neutral_color_white;
+                padding-left: $distance_l;
+            }
+        }
+    }
+
+}
+
+/* 首頁區塊共用區 */
+.intro-section {
+    width: 500px;
+    padding: $distance_l;
+    letter-spacing: 0.2rem;
+
+    .title {
+        margin-bottom: $distance_xxl;
+
+        h2 {
+            font-family: $font_title_dela;
+            font-size: $fontsize_title;
+
+            margin-bottom: $distance_m;
+        }
+
+        h3 {
+            font-size: $fontsize_subtitle;
+            font-weight: $font_bold;
+        }
+    }
+
+    p {
+        font-size: $fontsize_content;
+        font-weight: $font_regular;
+        line-height: 1.5;
+        margin-bottom: $distance_xxl;
+    }
+
+    .cta {
+        display: flex;
+        align-items: center;
+
+        span {
+            font-size: $fontsize_14;
+            margin-right: $distance_s;
+        }
+    }
+}
+
+/* 每個頁面的按鈕 */
+.cta-btn {
+    width: 48px;
+    height: 48px;
+    background-color: $Neutral_color_black;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        @extend %box-center;
+    }
+}
+
+.box-roll {
+    @extend %box-center;
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+
+    .box-intro {
+
+        .box-pic {
+            @extend %box-center;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            margin: 24px 0;
+            cursor: pointer;
+
+            &:hover {
+                .hover-text {
+                    bottom: 0;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .hover-text {
+                position: absolute;
+                bottom: -88px;
+                background-color: rgba($Neutral_color_black, 0.7);
+                color: $Neutral_color_white;
+                width: 100%;
+                height: 88px;
+                padding: 12px 24px;
+                letter-spacing: $letterspacing_10per;
+                transition: $speed-cubebuttomhover;
+
+            }
+        }
+    }
+}
+
+/* 首頁隨BAND地圖區 */
+#bandmap-page {
+    @extend %box-spacearound;
+    height: 100vh;
+    padding: 0 50px;
+    background-image: url(../images/bg-bandmap.svg);
+    background-size: cover;
+    background-position: center;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    figure {
+        @extend %box-center;
+        width: 90%;
+    }
+}
+
+/* 首頁BAND利商店區 */
+#banddiscover-page {
+    @extend %box-spacearound;
+    height: 100vh;
+    background-color: $Primary_color_blue;
+    position: relative;
+    padding: 0 50px;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    .hover-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: $speed-cubebuttomhover;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-image: url(../images/texture.png);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        opacity: 0.2;
+    }
+
+    .intro-section {
+        color: $Neutral_color_white;
+        z-index: 1;
+
+        h3 {
+            font-weight: 600;
+        }
+
+        .cta {
+            button {
+                background-color: $Neutral_color_white;
+            }
+        }
+    }
+
+    .hover-text {
+
+        h4 {
+            font-size: 20px;
+            font-weight: $font_bold;
+            margin-bottom: $distance_xs;
+        }
+
+        p {
+            font-size: $fontsize_12;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+/* 首頁BAND地開花區 */
+#currentevent-page {
+    @extend %box-spacearound;
+    height: 100vh;
+    background-color: $Primary_color_pink;
+    position: relative;
+    padding: 0 50px;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    .hover-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: $speed-cubebuttomhover;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-image: url(../images/texture.png);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        opacity: 0.2;
+    }
+
+    .intro-section {
+        color: $Neutral_color_white;
+        z-index: $z_index-m;
+
+        h3 {
+            font-weight: 600;
+        }
+
+        .cta {
+            button {
+                background-color: $Neutral_color_white;
+            }
+        }
+    }
+
+    .hover-text {
+        padding: 20px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .text-left {
+            h4 {
+                font-size: 20px;
+                font-weight: $font_bold;
+                margin-bottom: $distance_s;
+            }
+
+            .place {
+                @extend %box-center;
+
+                figure {
+                    width: 20x;
+                    height: 20px;
+                }
+
+                p {
+                    font-family: 'inter';
+                    font-size: $fontsize_12;
+                    line-height: 1.5;
+                }
+            }
+        }
+
+        .event-time {
+            font-family: 'inter';
+            font-size: $fontsize_12;
+        }
+
+    }
+
+}
+
+/* 首頁BAND利貼區 */
+#chatboard-page {
+    @extend %box-spacearound;
+    height: 100vh;
+    background-image: url(../images/樂迷留言板photo.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 0 50px;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    .intro-section {
+        color: $Neutral_color_white;
+        z-index: 1;
+
+        h3 {
+            font-weight: 600;
+        }
+    }
+
+    .buttons {
+        .button {
+            @extend %box-center;
+            padding: $distance_l;
+            background-color: $Neutral_color_white;
+            cursor: pointer;
+            margin-bottom: $distance_xxl;
+
+            p {
+                font-size: 30px;
+                font-weight: $font_bold;
+                color: $Neutral_color_black;
+                letter-spacing: $letterspacing_10per;
+                margin-right: $distance_l;
+            }
+
+            button {
+                width: 48px;
+                height: 48px;
+                background-color: $Neutral_color_black;
+                border-radius: 100px;
+                border: none;
+                cursor: pointer;
+
+                svg {
+                    @extend %box-center;
+                }
+            }
+        }
+    }
+}
+
+/* 首頁隨BAND排區 */
+#personalcal-page {
+    @extend %box-spacearound;
+    height: 100vh;
+    position: relative;
+    padding: 0 50px;
+    background-color: $Neutral_color_white;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    .calendar-illu {
+        width: 50%;
+        height: 100%;
+        background-color: $Primary_color_red;
+    }
+
+}
+
+/* 各分頁面共用區 */
+
+/* 主要內容區main */
+main {
+    margin-bottom: $distance_xxl;
+}
+
+/* 各分頁topbar */
+.topbar {
+    height: 50vh;
+    @extend %box-center;
+
+    .left-part {
+        flex: 1;
+        @extend %box-center;
+        letter-spacing: $letterspacing_10per;
+        color: $Neutral_color_white;
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            h2 {
+                font-family: $font_title_dela;
+                font-size: $fontsize_title;
+                margin-bottom: $distance_l;
+                padding: $interval_32_24;
+            }
+
+            p {
+                font-size: $fontsize_subtitle;
+                font-weight: $font_bold;
+                padding: $interval_16_24;
+            }
+        }
+    }
+
+    .right-part {
+        flex: 1.2;
+        height: 50vh;
+        @extend %box-center;
+    }
+}
+
+/* banner輪播區 */
+.banner-section {
+    @extend %box-center;
+    width: 100%;
+    overflow: hidden;
+
+    .banner-card {
+        width: 800px;
+        height: 400px;
+        flex-shrink: 0;
+        margin: $interval_0_24;
+        cursor: pointer;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+/* 背景區漸層 */
+.linear-bg {
+    z-index: -1;
+    pointer-events: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, $Primary_color_orange, $Neutral_color_white, $Primary_color_pink);
+    z-index: -2;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        opacity: .3;
+    }
+}
+
+/* card卡片樣式 */
+.card {
+    width: 425px;
+    margin: 0 30px 40px 30px;
+    cursor: pointer;
+    transition: $speed-cubebuttomhover;
+
+    &:hover {
+        box-shadow: 10px 15px $Primary_color_blue;
+        transform: translate(-10px, -10px);
+    }
+
+    figure {
+        width: 100%;
+        height: 247px;
+
+        img {
+            @extend %img-cover;
+        }
+    }
+
+    .content {
+        width: 100%;
+        height: 153px;
+        font-family: 'inter';
+        background-color: $Neutral_color_black;
+        color: $Neutral_color_white;
+        padding: $distance_m;
+
+        .date {
+            font-size: $fontsize_16;
+            margin-bottom: $distance_s;
+        }
+
+        .event {
+            font-size: $fontsize_content;
+            font-weight: $font_medium;
+            margin-bottom: $distance_s;
+            @extend %line-single;
+        }
+
+        .location {
+            display: flex;
+            margin-bottom: $distance_s;
+
+            figure {
+                width: 20px;
+                height: 20px;
+            }
+
+            p {
+                font-family: 'inter';
+                font-size: $fontsize_16;
+            }
+        }
+    }
+
+    .bottom-line {
+        @extend %box-spacebetween;
+
+        .name-tags {
+            font-size: $fontsize_10;
+            display: flex;
+
+            .nametag {
+                border: solid 1px $Neutral_color_white;
+                padding: $interval_4_8;
+                border-radius: 100px;
+                margin-right: $distance_s;
+            }
+        }
+
+        .btns {
+            display: flex;
+
+            .like {
+                width: 24px;
+                height: 24px;
+                margin-right: $distance_s;
+            }
+
+            .collect-btn {
+                @extend %box-center;
+                border: solid 1px $Neutral_color_white;
+                padding: 2px 8px 2px 4px;
+
+                figure {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                p {
+                    font-size: $fontsize_12;
+                }
+            }
+        }
+    }
+}
+
+/* 右邊卡片 */
+.right-place {
+    margin: 40px 30px 0 30px;
+}
+
+
+/* 演出搜尋頁面 */
+#bandmap-main {
+    position: relative;
+    z-index: 0;
+
+    .left-part {
+        h2 {
+            background-color: $Primary_color_blue;
+        }
+
+        p {
+            background-color: $Primary_color_blue;
+        }
+    }
+
+    .right-part {
+        background-color: $Primary_color_red;
+    }
+
+    .banner-section {
+        position: relative;
+        margin-bottom: 120px;
+
+        .cta-btn {
+            position: absolute;
+            transform: scale(1.25);
+        }
+
+        .left {
+            transform: scale(-1.25);
+            left: 50px;
+        }
+
+        .right {
+            right: 50px;
+        }
+    }
+
+    /* 搜尋選單 */
+    .search-section {
+        width: 70%;
+        margin: auto;
+        @extend %box-center;
+        margin-bottom: 100px;
+
+        div {
+            flex: 1;
+            background-color: $Neutral_color_black;
+            color: $Neutral_color_white;
+            display: flex;
+            flex-direction: column;
+            padding: $distance_xxl;
+
+            label {
+                margin-bottom: $distance_s;
+            }
+
+            input,
+            select {
+                background-color: transparent;
+                border: solid 3px $Neutral_color_white;
+                height: $distance_xxl;
+                padding-left: $interval_0_8;
+                color: $Neutral_color_white;
+            }
+        }
+
+        .where {
+            background-color: $Primary_color_blue;
+        }
+    }
+
+    .newsTicker {
+        height: 80px;
+        transform: rotate(-3deg);
+        margin-bottom: 60px;
+
+        span {
+            font-size: $fontsize_40;
+        }
+    }
+
+    .cards {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+    }
+}
+
+
+/* 各活動頁排版 */
+.event-banner {
+    height: 700px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    .cover {
+        position: absolute;
+        width: 100%;
+    }
+    .eventpic {
+        position: absolute;
+        height: 100%;
+        z-index: -1;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    h1 {
+        position: absolute;
+    }
+}
