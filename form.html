@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表單基本結構</title>
+    <style>
+        #member-form>*{
+            display: block;
+        }
+        #member-form label , #member-form fieldset{
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 搜尋欄 -->
+    <form action="" name="search-form" id="search-form" title="搜尋表單">
+        <!-- 欄位項目名稱 -->
+        <label for="search">搜尋:</label>
+        <!-- 文字欄位 -->
+        <input type="search" name="search" id="search" title="搜尋欄位">
+        <!-- 送出按鈕 -->
+        <input type="submit" name="submit-btn" id="submit-btn" title="搜尋按鈕" value="送出">
+    </form>
+    <hr>
+    <!-- 會員資料修改表單 -->
+    <h2>會員資料修改</h2>
+    <form action="" name="member-form" id="member-form" title="會員資料修改表單">
+    <label for="">姓名:</label>
+
+    <!-- 禁用或只讀一定要給值 -->
+    <!-- 禁用disabled -->
+    <input type="text" name="username" id="username" title="會員姓名" placeholder="請輸入姓名" required autofocus>
+    <label for="account">*帳號:(禁用)</label>
+    <input type="text" name="account" id="account" title="身分證字號" value="ritadesign" required disabled>
+    <!-- 只讀readonly比較少用 -->
+    <label for="userid">*身份證字號(只讀)</label>
+    <input type="text" name="userid" id="userid" title="身分證字號" value="U123456789" required disabled="10" readonly>
+
+    <label for="email">*Email:</label>
+    <input type="text" name="email" id="email" title="Email" placeholder="請輸入Email" required>
+
+    <label for="tel">*電話:</label>
+    <input type="text" name="tel" id="tel" title="電話號碼" placeholder="09123456789">
+
+    <label for="password">*重設密碼:</label>
+    <input type="text" name="password" id="password" title="重設密碼" placeholder="請輸入6-8個英文數字" >
+
+    <label for="password-1">*再次確認密碼:</label>
+    <input type="text" name="password-1" id="password-1" title="再次確認密碼" placeholder="請輸入6-8個英文數字" >
+
+    <label for="birthday">*生日:</label>
+    <input type="date" name="birthday" id="birthday">
+    
+    <label for="">上傳檔案:</label>
+    <input type="file" name="file" id="file" title="上傳檔案" multiple><!-- multiple選擇多個檔案 -->
+    <small>僅可上傳.jpg、.gif、.png、圖檔</small>
+
+    <label for="sex">性別:</label>
+    <select name="sex" id="sex">
+        <option value="">請選擇</option>
+        <option value="生理男">生理男</option>
+        <option value="生理女">生理女</option>
+    </select>
+
+    <label for="other">其他類別:</label>
+    <select name="other" id="other">
+        <option value="">請選擇</option>
+        <optgroup label="分類一">
+            <option value="選項一">選項一</option>
+            <option value="選項二">選項二</option>
+            <option value="選項三">選項三</option>
+        </optgroup>
+        <optgroup label="分類二">
+            <option value="選項一">選項一</option>
+            <option value="選項二">選項二</option>
+            <option value="選項三">選項三</option>
+        </optgroup>
+    </select>
+
+    <fieldset>
+        <legend>會員類型:</legend> <!-- name一樣 才能夠多選1 -->
+        <input type="radio" name="member" id="member1" title="金卡會員" value="金卡會員">
+        <label for="member1">金卡會員</label>
+
+        <input type="radio" name="member" id="member2" title="銀卡會員" value="銀卡會員">
+        <label for="member2">銀卡會員</label>
+
+        <input type="radio" name="member" id="member3" title="銅卡會員" value="銅卡會員">
+        <label for="member3">銅卡會員</label>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>類型項目:</legend> <!-- name一樣 才能夠多選1 -->
+        <input type="checkbox" name="category" id="category1" title="類型項目1" value="類型項目1">
+        <label for="category1">類型項目1</label>
+
+        <input type="checkbox" name="category" id="category2" title="類型項目2" value="類型項目2">
+        <label for="category2">類型項目2</label>
+
+        <input type="checkbox" name="category" id="category3" title="類型項目3" value="類型項目3">
+        <label for="category3">類型項目3</label>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>訂閱內容:</legend> <!-- name一樣 才能夠多選1 -->
+        <input type="checkbox" name="oder" id="oder1" title="國際" value="國際">
+        <label for="oder1">國際</label>
+
+        <input type="checkbox" name="oder" id="oder2" title="社會" value="社會">
+        <label for="oder2">社會</label>
+
+        <input type="checkbox" name="oder" id="oder3" title="政治" value="政治">
+        <label for="oder3">政治</label>
+
+        <input type="checkbox" name="oder" id="oder4" title="娛樂" value="娛樂">
+        <label for="oder4">娛樂</label>
+
+        <input type="checkbox" name="oder" id="oder5" title="生活" value="生活">
+        <label for="oder5">生活</label>
+
+    </fieldset>
+
+    <label for="message">留言</label>
+    <textarea name="message" id="message" title="留言欄位" rows="6">請輸入留言</textarea>
+
+    <div>
+        <input type="reset" name="reset-btn" id="reset-btn" value="重填資料">
+        <input type="submit" name="submit-btn" id="submit-btn" value="送出資料">
+    </div>
+    
+
+
+
+
+
+    </form>
+    
+</body>
+</html>
