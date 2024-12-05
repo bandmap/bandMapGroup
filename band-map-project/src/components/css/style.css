@@ -52,7 +52,7 @@ a {
   text-decoration: none;
 }
 
-.newsTicker .bandmap-wrapper, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .cta-btn svg, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #chatboard-page .buttons .button button svg, .topbar, .topbar .left-part, .topbar .right-part, .banner-section, .card .bottom-line .btns .collect-btn, #bandmap-main .search-section {
+.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .cta-btn svg, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #chatboard-page .buttons .button button svg, .topbar, .topbar .left-part, .topbar .right-part, .banner-section, .banner-section .carousel, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #currentevent-main .cards, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,19 +64,19 @@ a {
   align-items: center;
 }
 
-#footer .footer-main, .card .bottom-line {
+#footer .footer-main, .card .bottom-line, .card-long .card-right .bottom-line {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.card figure img {
+.card figure img, .card-long figure img {
   height: 100%;
   object-fit: cover;
 }
 
 /* 單行省略 */
-.card .content .event {
+.card .content .event, .card-long .card-right .content .event {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -667,6 +667,7 @@ a {
   border: none;
   cursor: pointer;
 }
+/* 首頁區塊拖拉選單 */
 .box-roll {
   width: 40%;
   height: 100%;
@@ -927,7 +928,7 @@ main {
 }
 .topbar .right-part {
   flex: 1.2;
-  height: 50vh;
+  height: 700px;
 }
 
 /* banner輪播區 */
@@ -935,14 +936,14 @@ main {
   width: 100%;
   overflow: hidden;
 }
-.banner-section .banner-card {
-  width: 800px;
-  height: 400px;
+.banner-section .carousel .banner-card {
+  width: 700px;
+  height: 500px;
   flex-shrink: 0;
   margin: 0 24px;
   cursor: pointer;
 }
-.banner-section .banner-card img {
+.banner-section .carousel .banner-card img {
   object-fit: cover;
   width: 100%;
   height: 100%;
@@ -957,7 +958,6 @@ main {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, #FFAF00, white, #FE8DBA);
   z-index: -2;
 }
 .linear-bg img {
@@ -975,7 +975,7 @@ main {
   transition: 0.4s;
 }
 .card:hover {
-  box-shadow: 10px 15px #0099FF;
+  box-shadow: 10px 10px #0099FF;
   transform: translate(-10px, -10px);
 }
 .card figure {
@@ -1046,11 +1046,96 @@ main {
   margin: 40px 30px 0 30px;
 }
 
+/* 近期活動長卡片 */
+.card-long {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: black;
+  padding: 16px;
+  margin-bottom: 24px;
+  transition: 0.4s;
+}
+.card-long:hover {
+  box-shadow: 10px 10px #FE8DBA;
+  transform: translate(-10px, -10px);
+}
+.card-long figure {
+  width: 205px;
+  height: 120px;
+}
+.card-long .card-right {
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 16px;
+}
+.card-long .card-right .content {
+  font-family: "inter";
+}
+.card-long .card-right .content .date {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.card-long .card-right .content .event {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.card-long .card-right .content .location {
+  display: flex;
+  margin-bottom: 8px;
+}
+.card-long .card-right .content .location figure {
+  width: 20px;
+  height: 20px;
+}
+.card-long .card-right .content .location p {
+  font-family: "inter";
+  font-size: 16px;
+}
+.card-long .card-right .bottom-line .name-tags {
+  font-size: 10px;
+  display: flex;
+}
+.card-long .card-right .bottom-line .name-tags .nametag {
+  border: solid 1px white;
+  padding: 4px 8px;
+  border-radius: 100px;
+  margin-right: 8px;
+}
+.card-long .card-right .bottom-line .btns {
+  display: flex;
+}
+.card-long .card-right .bottom-line .btns .like {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+.card-long .card-right .bottom-line .btns .collect-btn {
+  border: solid 1px white;
+  padding: 2px 8px 2px 4px;
+}
+.card-long .card-right .bottom-line .btns .collect-btn figure {
+  width: 20px;
+  height: 20px;
+}
+.card-long .card-right .bottom-line .btns .collect-btn p {
+  font-size: 12px;
+}
+
 /* 演出搜尋頁面 */
 #bandmap-main {
   position: relative;
   z-index: 0;
   /* 搜尋選單 */
+}
+#bandmap-main .linear-bg {
+  background: linear-gradient(to bottom, #FFAF00, white, #FE8DBA);
 }
 #bandmap-main .left-part h2 {
   background-color: #0099FF;
@@ -1121,27 +1206,192 @@ main {
   margin: auto;
 }
 
+/* 近期演出頁面 */
+#currentevent-main {
+  position: relative;
+  z-index: 0;
+  /* current event跑馬燈 */
+}
+#currentevent-main .linear-bg {
+  background: linear-gradient(to bottom, #0099FF, white, #FF4438);
+}
+#currentevent-main .left-part h2 {
+  background-color: #FE8DBA;
+}
+#currentevent-main .left-part p {
+  background-color: #FE8DBA;
+}
+#currentevent-main .right-part {
+  background-color: #0099FF;
+}
+#currentevent-main .banner-section {
+  position: relative;
+  margin-bottom: 120px;
+}
+#currentevent-main .banner-section .cta-btn {
+  position: absolute;
+  transform: scale(1.25);
+}
+#currentevent-main .banner-section .left {
+  transform: scale(-1.25);
+  left: 50px;
+}
+#currentevent-main .banner-section .right {
+  right: 50px;
+}
+#currentevent-main .newsTicker {
+  height: 80px;
+  transform: rotate(-3deg);
+  margin-bottom: 60px;
+}
+#currentevent-main .newsTicker span {
+  font-size: 40px;
+}
+#currentevent-main .cards {
+  flex-direction: column;
+  width: 70%;
+  max-width: 1200px;
+  margin: auto;
+}
+
 /* 各活動頁排版 */
-.event-banner {
-  height: 700px;
+.event-page .event-banner {
   position: relative;
   display: flex;
   overflow: hidden;
 }
-.event-banner .cover {
+.event-page .event-banner .cover {
   position: absolute;
   width: 100%;
 }
-.event-banner .eventpic {
-  position: absolute;
+.event-page .event-banner .eventpic {
+  width: 100%;
   height: 100%;
   z-index: -1;
 }
-.event-banner .eventpic img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.event-banner h1 {
+.event-page .event-banner h1,
+.event-page .event-banner h2 {
   position: absolute;
+  background-color: black;
+  color: white;
+  font-size: 36px;
+  font-weight: 700;
+  padding: 16px 24px;
+}
+.event-page .event-banner h1 {
+  margin-top: 40px;
+}
+.event-page .event-banner h2 {
+  margin-top: 108px;
+}
+.event-page .content-bg-up {
+  margin-top: -70px;
+}
+.event-page .content-down {
+  display: flex;
+  justify-content: space-around;
+  padding: 0px 80px;
+  margin-bottom: 60px;
+}
+.event-page .content-down .left-part {
+  flex: 3;
+  padding: 40px 56px 0 56px;
+  margin-right: 40px;
+  background-color: #0099FF;
+}
+.event-page .content-down .left-part figure {
+  width: 100%;
+}
+.event-page .content-down .left-part .content-words {
+  margin-top: 32px;
+  color: white;
+}
+.event-page .content-down .left-part .content-words h2 {
+  font-size: 36px;
+  font-weight: 700;
+  padding-bottom: 24px;
+  border-bottom: solid 2px white;
+}
+.event-page .content-down .left-part .content-words p {
+  margin-top: 24px;
+  line-height: 1.5;
+  font-size: 16px;
+  margin-bottom: 80px;
+}
+.event-page .content-down .right-part {
+  flex: 1;
+}
+.event-page .content-down .right-part .info-sec {
+  font-family: "inter";
+  background-color: black;
+  color: white;
+  padding: 32px 24px;
+  letter-spacing: 0.1rem;
+}
+.event-page .content-down .right-part .info-sec .time {
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 16px;
+  border-bottom: solid 2px white;
+}
+.event-page .content-down .right-part .info-sec .li-sec {
+  padding: 16px 0;
+}
+.event-page .content-down .right-part .info-sec .li-sec h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.event-page .content-down .right-part .info-sec .li-sec p {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.event-page .content-down .right-part .info-sec button {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  border: none;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+.event-page .content-down .right-part .info-sec .share {
+  margin-bottom: 16px;
+}
+.event-page .content-down .right-part .info-sec .share p {
+  margin-right: 16px;
+}
+.event-page .content-down .right-part .info-sec .share figure {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+.event-page .newsTicker {
+  height: 80px;
+  transform: rotate(-3deg);
+  margin-bottom: 60px;
+}
+.event-page .newsTicker span {
+  font-size: 40px;
+}
+.event-page .cards-bottom {
+  overflow: hidden;
+  padding: 16px 0;
+  position: relative;
+  z-index: 888;
+}
+.event-page .cards-bottom .buttons {
+  z-index: 999;
+}
+.event-page .cards-bottom .buttons .cta-btn {
+  position: absolute;
+  transform: scale(1.25);
+}
+.event-page .cards-bottom .buttons .left {
+  transform: scale(-1.25);
+  left: 50px;
+}
+.event-page .cards-bottom .buttons .right {
+  right: 50px;
 }/*# sourceMappingURL=style.css.map */

@@ -1,4 +1,5 @@
 import CardOne from "../components/CardOne"
+import Carousel from "../components/Carousel"
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar"
 import SearchSection from "../components/SearchSection"
@@ -69,15 +70,9 @@ function BandMapPage() {
                             <button className="cta-btn right">{arrow_button}</button>
                         </div>
                         {/* 輪播卡片 */}
-                        <figure className="banner-card">
-                            <img src="../images/近期活動-刑男大主廚.jpg" alt="" />
-                        </figure>
-                        <figure className="banner-card">
-                            <img src="../images/近期活動-刑男大主廚.jpg" alt="" />
-                        </figure>
-                        <figure className="banner-card">
-                            <img src="../images/近期活動-刑男大主廚.jpg" alt="" />
-                        </figure>
+                        <div className="carousel">
+                            <Carousel />
+                        </div>
                     </div>
 
                     {/* 搜尋選單 */}
@@ -123,7 +118,9 @@ function BandMapPage() {
                     </div>
                 </div >
             </main>
-            <Footer />
+            <footer>
+                <Footer />
+            </footer>
         </>
     )
 }
