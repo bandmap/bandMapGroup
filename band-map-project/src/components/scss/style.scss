@@ -27,6 +27,7 @@
         font-size: $fontsize_32;
         padding: 0 12px;
         @extend %box-center;
+        white-space: nowrap;
     }
 }
 
@@ -458,16 +459,16 @@
         display: flex;
         align-items: center;
 
-        a {
+        p {
             color: $Neutral_color_white;
-            padding: 16px 8px;
+            padding: 17px 8px;
             font-size: 18px;
             font-weight: 700;
             letter-spacing: 0.05rem;
             transition: 0.35s;
         }
 
-        a:hover {
+        p:hover {
             background-color: $Primary_color_beige;
             color: $Neutral_color_black;
         }
@@ -923,7 +924,9 @@ main {
 
     .carousel {
         @extend %box-center;
+
         .banner-card {
+            // display: flex;
             width: 700px;
             height: 500px;
             flex-shrink: 0;
@@ -1257,15 +1260,20 @@ main {
         }
     }
 
-    .cards {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-wrap: wrap;
-        width: 100%;
-        max-width: 1200px;
-        margin: auto;
+    .cards-center {
+
+        // margin: auto;
+        .cards {
+            display: flex;
+            // justify-content: flex-start;
+            // align-items: center;
+            flex-wrap: wrap;
+            // width: 100%;
+            max-width: 1200px;
+            margin: auto;
+        }
     }
+
 }
 
 /* 近期演出頁面 */
@@ -1328,6 +1336,234 @@ main {
         width: 70%;
         max-width: 1200px;
         margin: auto;
+    }
+}
+
+/* 樂團推薦頁面 */
+
+/* 樂團介紹頁排版 */
+#banddiscover-main {
+    position: relative;
+    z-index: 0;
+
+    .linear-bg {
+        background: linear-gradient(to bottom, $Primary_color_orange, $Neutral_color_white, $Primary_color_beige);
+    }
+
+    .left-part {
+        h2 {
+            background-color: $Primary_color_red;
+        }
+
+        p {
+            background-color: $Primary_color_red;
+        }
+    }
+
+    .right-part {
+        background-color: $Primary_color_pink;
+    }
+}
+
+// .band-section {
+//     display: flex;
+//     width: 100%;
+//     flex-direction: column;
+//     white-space: nowrap;
+//     justify-content: center;
+//     padding: 16px 96px;
+//     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5));
+
+//     h2 {
+//         font-family: "Dela Gothic One";
+//     }
+
+//     .title {
+//         align-self: start;
+//         color: rgb(255, 216, 102);
+//         letter-spacing: 2.75px;
+//     }
+
+//     .content {
+//         align-self: stretch;
+//         flex: 1;
+//         margin-top: 24px;
+//         width: 100%;
+//         color: rgb(255, 255, 255);
+//         letter-spacing: 3px;
+//         padding: 2px 8px;
+//     }
+// }
+
+/* 樂迷留言板頁面 */
+#chatboard-main {
+    position: relative;
+    z-index: 0;
+
+    .linear-bg {
+        background: linear-gradient(to bottom, $Primary_color_pink, $Neutral_color_white, $Primary_color_blue);
+    }
+
+    .left-part {
+        h2 {
+            background-color: $Primary_color_orange;
+        }
+
+        p {
+            background-color: $Primary_color_orange;
+        }
+    }
+
+    .right-part {
+        background-color: $Primary_color_orange;
+    }
+
+    .main-area {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: 0 auto;
+
+        /* Search Bar */
+        .searchbar {
+            @extend %box-spacebetween;
+            border: 4px solid $Neutral_color_black;
+            width: 100%;
+            height: 56px;
+            background-color: $Neutral_color_white;
+
+            .search {
+                width: 100%;
+                border: none;
+                padding-left: $distance_s;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .magnifier {
+                width: 40px;
+                height: 40px;
+                background-color: $Primary_color_orange;
+                margin: 8px 4px 8px 16px;
+                @extend %box-center;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+
+        /* Filter */
+        .filter {
+            display: flex;
+            margin: 64px 0 32px 0;
+
+            .option {
+                font-size: $fontsize_16;
+                border: 3px solid #ffaf00;
+                background-color: white;
+                margin-right: $distance_m;
+                padding: $interval_4_8;
+            }
+        }
+
+        /* message */
+        .article {
+            border: 3px solid $Neutral_color_black;
+            padding: 32px 36px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 32px;
+            background-color: $Neutral_color_white;
+            transition: $speed-cubebuttomhover;
+
+            &:hover {
+                box-shadow: 10px 10px $Primary_color_orange;
+                transform: translate(-10px, -10px);
+            }
+
+            .tag {
+                border: 1px solid $Primary_color_blue;
+                border-radius: 50px;
+                padding: $interval_4_8;
+                font-size: $fontsize_12;
+                margin-bottom: $distance_m;
+            }
+
+            .message {
+                display: flex;
+                justify-content: space-between;
+
+                .text-area {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    margin-right: $distance_l;
+                    max-width: calc(100% - 190px);
+
+                    .user {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: $distance_s;
+
+                        .profile {
+                            width: 36px;
+                            height: 36px;
+                            margin-right: $distance_s;
+                        }
+
+                        .username {
+                            font-family: 'inter';
+                            font-size: $fontsize_14;
+                            text-align: center;
+                        }
+                    }
+
+                    .article-title {
+                        color: $Primary_color_orange;
+                        margin-bottom: $distance_s;
+                        font-size: $fontsize_content;
+                        font-weight: $font_bold;
+                    }
+
+                    .content {
+                        font-size: $fontsize_16;
+                        margin-bottom: $distance_m;
+                        @extend %line-single;
+                    }
+
+                    .feedback {
+                        display: flex;
+
+                        .icon-number {
+                            display: flex;
+                            justify-content: center;
+                            margin-right: $distance_xxl;
+
+                            figure {
+                                width: 24px;
+                                height: 24px;
+                                margin-right: $distance_xs;
+                            }
+                        }
+                    }
+                }
+
+                .picture {
+                    width: 190px;
+
+                    img {
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+        }
     }
 }
 
@@ -1504,6 +1740,203 @@ main {
             .right {
                 right: 50px;
             }
+        }
+    }
+}
+
+/* 登入頁面 */
+#login-page {
+    height: calc(100vh - 55px);
+    @extend %box-center;
+
+    .login-left {
+        flex: 1.5;
+        @extend %box-center;
+        flex-direction: column;
+        margin-right: $distance_l;
+
+        h3,
+        p {
+            background-color: $Neutral_color_black;
+            color: $Neutral_color_white;
+            padding: $interval_4_8;
+            font-size: $fontsize_36;
+            font-weight: $font_black;
+            font-family: 'inter';
+            letter-spacing: $letterspacing_10per;
+        }
+
+        h3 {
+            margin-bottom: $distance_l;
+        }
+    }
+
+    .login-right {
+        flex: 1;
+
+        .login-card {
+            width: 345px;
+            padding: 70px 40px;
+            transition: $speed-cubebuttomhover;
+
+            .login-btns {
+                margin-top: 100px;
+            }
+
+            &:hover {
+                box-shadow: 10px 10px $Primary_color_orange;
+                transform: translate(-10px, -10px);
+            }
+
+            figure {
+                margin-bottom: $distance_s;
+            }
+
+            p {
+                font-size: $fontsize_14;
+            }
+        }
+    }
+}
+
+/* 登入/註冊畫面卡片彈跳視窗 共用區 */
+.login-popup {
+    height: calc(100vh - 55px);
+    @extend %box-center;
+    flex-direction: column;
+
+    .flow {
+        width: 486px;
+        @extend %box-spacebetween;
+        margin-bottom: $distance_xl;
+
+        .line {
+            display: block;
+            width: 160px;
+            height: 4px;
+            border-radius: 0;
+            background-color: $Neutral_color_grey_300;
+        }
+
+        div {
+            width: 48px;
+            height: 48px;
+            font-family: $font_title_dela;
+            text-align: center;
+            font-size: $fontsize_32;
+            border-radius: 100px;
+            color: $Neutral_color_white;
+        }
+
+        .done {
+            background-color: $Primary_color_orange;
+        }
+
+        .undo {
+            background-color: $Neutral_color_grey_300;
+        }
+    }
+
+    .login-card {
+        width: 486px;
+        height: 512px;
+        padding: 0 80px;
+        box-shadow: 10px 10px $Primary_color_orange;
+
+        h1 {
+            font-family: $font_title_dela;
+            font-size: $fontsize_36;
+        }
+
+        p {
+            text-align: center;
+            font-size: $fontsize_14;
+            margin-top: $distance_xs;
+            line-height: 1.5;
+        }
+
+        .card-content {
+            width: 100%;
+
+            form {
+                margin-top: $distance_l;
+                @extend %box-center;
+                flex-direction: column;
+                width: 100%;
+
+                .user-data {
+                    width: 100%;
+                    border: none;
+                    border-bottom: solid 1px $Neutral_color_black;
+                    margin-bottom: $distance_m;
+                    font-size: $fontsize_16;
+                    padding-bottom: $distance_xs;
+
+                    &::placeholder {
+                        color: $Neutral_color_grey_300;
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                .remember-me {
+                    width: 100%;
+                    @extend %box-spacebetween;
+                    font-size: $fontsize_12;
+                    margin-top: -12px;
+                    color: $Neutral_color_grey_300;
+
+                    p {
+                        color: $Primary_color_blue;
+                    }
+                }
+
+                .line {
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: $Neutral_color_grey_300;
+                    margin: 8px 0 24px 0;
+                }
+            }
+        }
+    }
+}
+
+/* 登入畫面卡片btns 共用樣式 */
+.login-card {
+    border: solid 5px $Neutral_color_black;
+    @extend %box-center;
+    flex-direction: column;
+
+    .login-btns {
+        @extend %box-center;
+        flex-direction: column;
+        width: 100%;
+        margin-top: $distance_l;
+
+        .orange-btn,
+        .normal-btn,
+        .disabled-btn {
+            width: 100%;
+            border: solid 1px $Neutral_color_black;
+            font-size: $fontsize_16;
+            padding: $interval_8_0;
+            margin-bottom: $distance_m;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .disabled-btn {
+            border: solid 1px $Neutral_color_grey_300;
+            color: $Neutral_color_grey_300;
+        }
+
+        .orange-btn {
+            background-color: $Primary_color_orange;
+            border: none;
         }
     }
 }

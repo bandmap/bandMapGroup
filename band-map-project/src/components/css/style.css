@@ -52,7 +52,7 @@ a {
   text-decoration: none;
 }
 
-.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .cta-btn svg, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #chatboard-page .buttons .button button svg, .topbar, .topbar .left-part, .topbar .right-part, .banner-section, .banner-section .carousel, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #currentevent-main .cards, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom {
+.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .cta-btn svg, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #chatboard-page .buttons .button button svg, .topbar, .topbar .left-part, .topbar .right-part, .banner-section, .banner-section .carousel, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-popup .login-card .card-content form, .login-card, .login-card .login-btns {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +64,7 @@ a {
   align-items: center;
 }
 
-#footer .footer-main, .card .bottom-line, .card-long .card-right .bottom-line {
+#footer .footer-main, .card .bottom-line, .card-long .card-right .bottom-line, #chatboard-main .main-area .searchbar, .login-popup .flow, .login-popup .login-card .card-content form .remember-me {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -76,7 +76,7 @@ a {
 }
 
 /* 單行省略 */
-.card .content .event, .card-long .card-right .content .event {
+.card .content .event, .card-long .card-right .content .event, #chatboard-main .main-area .article .message .text-area .content {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -253,6 +253,7 @@ a {
   font-family: "Dela Gothic One";
   font-size: 32px;
   padding: 0 12px;
+  white-space: nowrap;
 }
 
 /* 首頁cube區 */
@@ -588,15 +589,15 @@ a {
   display: flex;
   align-items: center;
 }
-#nav-bar .menu a {
+#nav-bar .menu p {
   color: white;
-  padding: 16px 8px;
+  padding: 17px 8px;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.05rem;
   transition: 0.35s;
 }
-#nav-bar .menu a:hover {
+#nav-bar .menu p:hover {
   background-color: #FFF8E4;
   color: black;
 }
@@ -1196,12 +1197,9 @@ main {
 #bandmap-main .newsTicker span {
   font-size: 40px;
 }
-#bandmap-main .cards {
+#bandmap-main .cards-center .cards {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   flex-wrap: wrap;
-  width: 100%;
   max-width: 1200px;
   margin: auto;
 }
@@ -1252,6 +1250,164 @@ main {
   width: 70%;
   max-width: 1200px;
   margin: auto;
+}
+
+/* 樂團推薦頁面 */
+/* 樂團介紹頁排版 */
+#banddiscover-main {
+  position: relative;
+  z-index: 0;
+}
+#banddiscover-main .linear-bg {
+  background: linear-gradient(to bottom, #FFAF00, white, #FFF8E4);
+}
+#banddiscover-main .left-part h2 {
+  background-color: #FF4438;
+}
+#banddiscover-main .left-part p {
+  background-color: #FF4438;
+}
+#banddiscover-main .right-part {
+  background-color: #FE8DBA;
+}
+
+/* 樂迷留言板頁面 */
+#chatboard-main {
+  position: relative;
+  z-index: 0;
+}
+#chatboard-main .linear-bg {
+  background: linear-gradient(to bottom, #FE8DBA, white, #0099FF);
+}
+#chatboard-main .left-part h2 {
+  background-color: #FFAF00;
+}
+#chatboard-main .left-part p {
+  background-color: #FFAF00;
+}
+#chatboard-main .right-part {
+  background-color: #FFAF00;
+}
+#chatboard-main .main-area {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  /* Search Bar */
+  /* Filter */
+  /* message */
+}
+#chatboard-main .main-area .searchbar {
+  border: 4px solid black;
+  width: 100%;
+  height: 56px;
+  background-color: white;
+}
+#chatboard-main .main-area .searchbar .search {
+  width: 100%;
+  border: none;
+  padding-left: 8px;
+}
+#chatboard-main .main-area .searchbar .search:focus {
+  outline: none;
+}
+#chatboard-main .main-area .searchbar .magnifier {
+  width: 40px;
+  height: 40px;
+  background-color: #FFAF00;
+  margin: 8px 4px 8px 16px;
+}
+#chatboard-main .main-area .searchbar .magnifier img {
+  width: 24px;
+  height: 24px;
+}
+#chatboard-main .main-area .filter {
+  display: flex;
+  margin: 64px 0 32px 0;
+}
+#chatboard-main .main-area .filter .option {
+  font-size: 16px;
+  border: 3px solid #ffaf00;
+  background-color: white;
+  margin-right: 16px;
+  padding: 4px 8px;
+}
+#chatboard-main .main-area .article {
+  border: 3px solid black;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+  background-color: white;
+  transition: 0.4s;
+}
+#chatboard-main .main-area .article:hover {
+  box-shadow: 10px 10px #FFAF00;
+  transform: translate(-10px, -10px);
+}
+#chatboard-main .main-area .article .tag {
+  border: 1px solid #0099FF;
+  border-radius: 50px;
+  padding: 4px 8px;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+#chatboard-main .main-area .article .message {
+  display: flex;
+  justify-content: space-between;
+}
+#chatboard-main .main-area .article .message .text-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 24px;
+  max-width: calc(100% - 190px);
+}
+#chatboard-main .main-area .article .message .text-area .user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+#chatboard-main .main-area .article .message .text-area .user .profile {
+  width: 36px;
+  height: 36px;
+  margin-right: 8px;
+}
+#chatboard-main .main-area .article .message .text-area .user .username {
+  font-family: "inter";
+  font-size: 14px;
+  text-align: center;
+}
+#chatboard-main .main-area .article .message .text-area .article-title {
+  color: #FFAF00;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+#chatboard-main .main-area .article .message .text-area .content {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+#chatboard-main .main-area .article .message .text-area .feedback {
+  display: flex;
+}
+#chatboard-main .main-area .article .message .text-area .feedback .icon-number {
+  display: flex;
+  justify-content: center;
+  margin-right: 40px;
+}
+#chatboard-main .main-area .article .message .text-area .feedback .icon-number figure {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
+#chatboard-main .main-area .article .message .picture {
+  width: 190px;
+}
+#chatboard-main .main-area .article .message .picture img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 /* 各活動頁排版 */
@@ -1394,4 +1550,164 @@ main {
 }
 .event-page .cards-bottom .buttons .right {
   right: 50px;
+}
+
+/* 登入頁面 */
+#login-page {
+  height: calc(100vh - 55px);
+}
+#login-page .login-left {
+  flex: 1.5;
+  flex-direction: column;
+  margin-right: 24px;
+}
+#login-page .login-left h3,
+#login-page .login-left p {
+  background-color: black;
+  color: white;
+  padding: 4px 8px;
+  font-size: 36px;
+  font-weight: 900;
+  font-family: "inter";
+  letter-spacing: 0.1rem;
+}
+#login-page .login-left h3 {
+  margin-bottom: 24px;
+}
+#login-page .login-right {
+  flex: 1;
+}
+#login-page .login-right .login-card {
+  width: 345px;
+  padding: 70px 40px;
+  transition: 0.4s;
+}
+#login-page .login-right .login-card .login-btns {
+  margin-top: 100px;
+}
+#login-page .login-right .login-card:hover {
+  box-shadow: 10px 10px #FFAF00;
+  transform: translate(-10px, -10px);
+}
+#login-page .login-right .login-card figure {
+  margin-bottom: 8px;
+}
+#login-page .login-right .login-card p {
+  font-size: 14px;
+}
+
+/* 登入/註冊畫面卡片彈跳視窗 共用區 */
+.login-popup {
+  height: calc(100vh - 55px);
+  flex-direction: column;
+}
+.login-popup .flow {
+  width: 486px;
+  margin-bottom: 32px;
+}
+.login-popup .flow .line {
+  display: block;
+  width: 160px;
+  height: 4px;
+  border-radius: 0;
+  background-color: #B2B2B2;
+}
+.login-popup .flow div {
+  width: 48px;
+  height: 48px;
+  font-family: "Dela Gothic One";
+  text-align: center;
+  font-size: 32px;
+  border-radius: 100px;
+  color: white;
+}
+.login-popup .flow .done {
+  background-color: #FFAF00;
+}
+.login-popup .flow .undo {
+  background-color: #B2B2B2;
+}
+.login-popup .login-card {
+  width: 486px;
+  height: 512px;
+  padding: 0 80px;
+  box-shadow: 10px 10px #FFAF00;
+}
+.login-popup .login-card h1 {
+  font-family: "Dela Gothic One";
+  font-size: 36px;
+}
+.login-popup .login-card p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+.login-popup .login-card .card-content {
+  width: 100%;
+}
+.login-popup .login-card .card-content form {
+  margin-top: 24px;
+  flex-direction: column;
+  width: 100%;
+}
+.login-popup .login-card .card-content form .user-data {
+  width: 100%;
+  border: none;
+  border-bottom: solid 1px black;
+  margin-bottom: 16px;
+  font-size: 16px;
+  padding-bottom: 4px;
+}
+.login-popup .login-card .card-content form .user-data::placeholder {
+  color: #B2B2B2;
+}
+.login-popup .login-card .card-content form .user-data:focus {
+  outline: none;
+}
+.login-popup .login-card .card-content form .remember-me {
+  width: 100%;
+  font-size: 12px;
+  margin-top: -12px;
+  color: #B2B2B2;
+}
+.login-popup .login-card .card-content form .remember-me p {
+  color: #0099FF;
+}
+.login-popup .login-card .card-content form .line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #B2B2B2;
+  margin: 8px 0 24px 0;
+}
+
+/* 登入畫面卡片btns 共用樣式 */
+.login-card {
+  border: solid 5px black;
+  flex-direction: column;
+}
+.login-card .login-btns {
+  flex-direction: column;
+  width: 100%;
+  margin-top: 24px;
+}
+.login-card .login-btns .orange-btn,
+.login-card .login-btns .normal-btn,
+.login-card .login-btns .disabled-btn {
+  width: 100%;
+  border: solid 1px black;
+  font-size: 16px;
+  padding: 8px 0;
+  margin-bottom: 16px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.login-card .login-btns .disabled-btn {
+  border: solid 1px #B2B2B2;
+  color: #B2B2B2;
+}
+.login-card .login-btns .orange-btn {
+  background-color: #FFAF00;
+  border: none;
 }/*# sourceMappingURL=style.css.map */

@@ -8,7 +8,7 @@ function CardLong({ searchcard }) {
                     <p className="date">{searchcard.date}</p>
                     <p className="event">{searchcard.event}</p>
                     <div className="location">
-                        <figure><img src="../images/icon-地點.svg" alt="icon-地點" /></figure>
+                        <figure><img src="../images/icon/icon-地點.svg" alt="icon-地點" /></figure>
                         <p>{searchcard.location}</p>
                     </div>
                 </div>
@@ -19,9 +19,9 @@ function CardLong({ searchcard }) {
                         })}
                     </div>
                     <div className="btns">
-                        <figure className="like"><img src="../images/icon-like.svg" alt="icon-like" /></figure>
+                        <figure className="like"><img src="../images/icon/icon-like.svg" alt="icon-like" /></figure>
                         <div className="collect-btn">
-                            <figure><img src="../images/icon-plus.svg" alt="" /></figure>
+                            <figure><img src="../images/icon/icon-plus.svg" alt="" /></figure>
                             <p>行事曆</p>
                         </div>
                     </div>

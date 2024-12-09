@@ -42,7 +42,7 @@ function CurrentEvent() {
                                         <div className="text-left">
                                             <h4>{e.event}</h4>
                                             <div className="place">
-                                                <figure><img src="../images/icon-地點.svg" alt="icon-地點" /></figure>
+                                                <figure><img src="../images/icon/icon-地點.svg" alt="icon-地點" /></figure>
                                                 <p>{e.place}</p>
                                             </div>
                                         </div>
